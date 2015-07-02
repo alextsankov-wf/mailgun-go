@@ -200,8 +200,8 @@ type MailgunImpl struct {
 }
 
 // NewMailGun creates a new client instance.
-func NewMailgun(domain, apiKey, publicApiKey string) Mailgun {
-	m := MailgunImpl{domain: domain, apiKey: apiKey, publicApiKey: publicApiKey, client: http.DefaultClient}
+func NewMailgun(domain, apiKey, publicApiKey string, contextClient *http.Client) Mailgun {
+	m := MailgunImpl{domain: domain, apiKey: apiKey, publicApiKey: publicApiKey, client: contextClient}
 	return &m
 }
 
